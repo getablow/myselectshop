@@ -19,16 +19,11 @@ import java.util.List;
 
 @Slf4j(topic = "NAVER API")
 @Service
-public class NaverApiService {
-    @Value("${NAVER_C_ID}")
-    private String naverId;
-
-    @Value("${NAVER_C_SECRET}")
-    private String naverSecret;
+public class NaverApiService_local {
 
     private final RestTemplate restTemplate;
 
-    public NaverApiService(RestTemplateBuilder builder) {
+    public NaverApiService_local(RestTemplateBuilder builder) {
         this.restTemplate = builder.build();
     }
 
@@ -46,8 +41,8 @@ public class NaverApiService {
 
         RequestEntity<Void> requestEntity = RequestEntity
                 .get(uri)
-                .header("X-Naver-Client-Id", naverId)
-                .header("X-Naver-Client-Secret", naverSecret)
+                .header("X-Naver-Client-Id", "wrVUR4CSFNBzufhwuRwP")
+                .header("X-Naver-Client-Secret", "fCvklsvtX3")
                 .build();
 
         ResponseEntity<String> responseEntity = restTemplate.exchange(requestEntity, String.class);
